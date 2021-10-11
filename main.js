@@ -10,22 +10,24 @@ const pricePerKm = 0.21;
 const grossPrice = pricePerKm * commuteKm;
 
 //Discount 20% off for under 18 users and 40% for over 65 users.
-let discount_20;
-let discount_40;
+//Output must be rounded to 2 decimal places maximum.
+console.log('Your ticket will cost:')
 
 if (userAge < 18) {
 
-    discount_20 = grossPrice - (grossPrice * 20/100);
-    console.log(`${discount_20}€`);
+    const discount_20 = grossPrice - (grossPrice * 20/100);    
+    //Round decimals to a maximum of 2:
+    console.log(Math.round(discount_20 * 100) / 100 + '€');
 
-} else if  (userAge > 65) {
+} else if (userAge > 65) {
 
-    discount_40 = grossPrice - (grossPrice * 40/100);
-    console.log(`${discount_40}€`);
+    const discount_40 = grossPrice - (grossPrice * 40/100);    
+    //Round decimals to a maximum of 2:
+    console.log(Math.round(discount_40 * 100) / 100 + '€');
 
-} else {
-
-    console.log(`${grossPrice}€`);
-    
+} else {    
+    //Round decimals to a maximum of 2:
+    console.log(Math.round(grossPrice * 100) / 100 + '€');
 }
-//Output must be rounded to 2 decimal places maximum.
+
+
